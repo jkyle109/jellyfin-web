@@ -14,7 +14,7 @@ permissions:
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
-  
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -53,5 +53,5 @@ jobs:
       - name: trigger watchtower
         run: |
           curl -fsS --max-time 300 \
-            -H "Authorization: Bearer ${{ secrets.WATCHTOWER_TOKEN }}" \
+            -H "Authorization: Bearer ${{ secrets.WATCHTOWER_HTTP_API_TOKEN }}" \
             "https://watchtower.nojiro.synology.me/v1/update"
