@@ -1,6 +1,6 @@
 ARG NODE_VERSION=24
 
-FROM node:${NODE_VERSION}-alpine AS build
+FROM --platform=$BUILDPLATFORM node:${NODE_VERSION}-alpine AS build
 WORKDIR /src
 COPY package.json package-lock.json ./
 RUN npm ci --no-audit --no-fund
