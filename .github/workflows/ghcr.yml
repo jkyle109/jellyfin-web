@@ -52,6 +52,6 @@ jobs:
       # trigger last to build is ready
       - name: trigger watchtower
         run: |
-          curl -fsS -X POST--max-time 300 \
+          curl -fsS -X POST --max-time 300 \
             -H "Authorization: Bearer ${{ secrets.WATCHTOWER_HTTP_API_TOKEN }}" \
             "https://watchtower.nojiro.synology.me/v1/update"
